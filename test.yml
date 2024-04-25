@@ -1,0 +1,13 @@
+---
+- name: Test playbook
+  hosts: all
+  become: true
+  tasks:
+  - name: Upgrade all apt packages
+    apt:
+      update_cache: yes
+      upgrade: dist
+  - name: Install nginx
+    apt:
+      name: "nginx"
+      state: "latest"
